@@ -9,12 +9,17 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>Hello world!</h1>
-	<P>The time on the server is ${serverTime}.</p>
+	<h1>Hello User</h1>
+	
 	<form action="user" method="post">
-		<input type="text" name="userName"><br> <input
-			type="submit" value="Login">
+	<label for="userName">Enter your name</label>
+		<input type="text" name="userName"><br> 
+	<label for="days">Enter the number of days</label>
+		<input type="number" name="days"><br>
+		<input
+			type="submit" value="Submit">
 	</form>
+	
 </body>
 </html>
 

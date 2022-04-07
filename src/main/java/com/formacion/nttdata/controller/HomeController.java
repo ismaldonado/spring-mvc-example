@@ -27,25 +27,30 @@ public class HomeController {
 	 */
 	@Autowired
 	private HelloServicio helloServicio;
+	
+	public HomeController(HelloServicio helloServicio) {
+		this.helloServicio = helloServicio;
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		System.out.println("Home Page Requested, locale = " + locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		//User usuario = new User();
-		//usuario.setUserName("Paco");
-		
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
+		System.out.println("Home Page Requested, locale = " + locale);	
 		return "home";
 	}
-
+	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public String user(@Validated User user, Model model) {
-		System.out.println("User Page Requested");
-		model.addAttribute("userName", user.getUserName());
-		return "user";
+	public String showInfo(String userName, int days, Locale locale, Model model) {
+		this.helloServicio.showInfo(userName, days, locale, model);
+		return"user";
 	}
+
+//	@RequestMapping(value = "/user", method = RequestMethod.POST)
+//	public String user(@Validated User user, Model model) {
+//		System.out.println("User Page Requested");
+//		model.addAttribute("userName", user.getUserName());
+//		return "user";
+//	}
+	
+	
 
 }
