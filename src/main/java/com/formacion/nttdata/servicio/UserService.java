@@ -21,21 +21,15 @@ public class UserService {
 	ValidationFormService validationService;
 
 	public void saveEmployee(Employee employee) {
-		if (employee == null) {
-			// excepcion mostrar pagina error
-		}
-
 		if (employee.getId() == null) {
 			employeeMapper.saveEmployee(employee);
 		} else {
-			
+
 			employee.setUpdateDate(dateFormat());
 			employeeMapper.updateEmployee(employee);
 		}
-		
-	}
 
-	
+	}
 
 	public Employee getEmployeeById(int employeeId) {
 		return employeeMapper.findById(employeeId);
@@ -48,13 +42,11 @@ public class UserService {
 	public List<Employee> getAllEmployees() {
 		return employeeMapper.getAllEmployees();
 	}
-	
-	
+
 	private String dateFormat() {
 		Date date = new Date();
-		String fd = new String(date.getDate()+"/"+date.getMonth()+ "/" + date.getYear());
+		String fd = new String(date.getDate() + "/" + date.getMonth() + "/" + date.getYear());
 
-		
 		return fd;
 	}
 
