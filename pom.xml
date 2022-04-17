@@ -7,15 +7,13 @@
 	<name>spring-mvc-example</name>
 	<description>spring-mvc-example</description>
 
+	<properties>
+		<lombok.version>1.18.12</lombok.version>
+		<mybatis.version>3.5.6</mybatis.version>
+		<mysql-connection.version>8.0.28</mysql-connection.version>
+	</properties>
+
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
-
 		<!-- Add Spring Web and MVC dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -46,10 +44,47 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.30</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connection.version}</version>
+		</dependency>
+
+
+		<!-- C3P0 support -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+
+		<!--support for mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<!-- spring mybatis integration -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+
 	</dependencies>
-
-
 	<build>
+
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -63,5 +98,7 @@
 				<version>3.2.3</version>
 			</plugin>
 		</plugins>
+
+
 	</build>
 </project>

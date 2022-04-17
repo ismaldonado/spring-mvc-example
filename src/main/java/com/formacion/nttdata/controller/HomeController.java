@@ -28,10 +28,7 @@ public class HomeController {
 	@Autowired
 	private HelloServicio helloServicio;
 	
-	public HomeController(HelloServicio helloServicio) {
-		this.helloServicio = helloServicio;
-	}
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		System.out.println("Home Page Requested, locale = " + locale);	
@@ -40,7 +37,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String showInfo(String userName, int days, Locale locale, Model model) {
-		this.helloServicio.showInfo(userName, days, locale, model);
+		helloServicio.showInfo(userName, days, locale, model);
 		return"user";
 	}
 

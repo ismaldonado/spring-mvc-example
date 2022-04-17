@@ -10,5 +10,8 @@
 </head>
 <body>
 	<h3>Hi ${userName}</h3>
+	<br>
+	<br>
+	<P>The date you're calculating is ${serverTime}.</p>
 </body>
 </html>
